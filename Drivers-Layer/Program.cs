@@ -1,4 +1,7 @@
 
+using Infrastructure_Layer.MyContext;
+using Microsoft.EntityFrameworkCore;
+
 namespace Drivers_Layer
 {
     public class Program
@@ -6,9 +9,9 @@ namespace Drivers_Layer
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
+            var connection = builder.Configuration.GetConnectionString("key");
             // Add services to the container.
-
+            builder.Services.AddDbContext<ApplicationContext>(option => option.UseSqlServer(connection));
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
