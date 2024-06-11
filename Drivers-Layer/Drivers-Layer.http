@@ -1,0 +1,6 @@
+@Drivers_Layer_HostAddress = http://localhost:5043
+
+GET {{Drivers_Layer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
