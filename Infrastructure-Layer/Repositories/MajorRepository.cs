@@ -20,8 +20,10 @@ namespace Infrastructure_Layer.Repositories
 
         public List<Major>? getall()
         {
-            var majors = context.Majors.AsNoTracking().OrderBy(s => s.Name).ToList();
+            var majors =  context.Majors.AsNoTracking().OrderBy(s => s.Name).ToList();
             return majors; 
         }
+
+       
     }
 }

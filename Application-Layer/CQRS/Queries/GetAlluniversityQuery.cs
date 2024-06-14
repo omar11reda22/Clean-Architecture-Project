@@ -1,4 +1,5 @@
-﻿using Domain_Layer.Domains;
+﻿using Application_Layer.DTOs;
+using Domain_Layer.Domains;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application_Layer.CQRS.Queries
 {
-    public record GetAlluniversityQuery :IRequest<List<University>>
+    public record GetAlluniversityQuery :IRequest<List<UniversityDTO>>
     {
     }
 }

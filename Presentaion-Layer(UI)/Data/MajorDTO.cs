@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application_Layer.DTOs
+namespace Presentaion_Layer_UI_.Data
 {
-    public class UniversityDTO
+    public class MajorDTO
     {
         public int ID { get; set; }
         public string Name { get; set; } = string.Empty;

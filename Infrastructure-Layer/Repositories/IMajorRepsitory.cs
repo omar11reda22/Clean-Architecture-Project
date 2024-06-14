@@ -9,6 +9,6 @@ namespace Infrastructure_Layer.Repositories
 {
     public interface IMajorRepsitory
     {
-        List<Major>? getall(); 
+       List<Major>? getall(); 
     }
 }

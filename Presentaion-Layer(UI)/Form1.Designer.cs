@@ -28,29 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            label1 = new Label();
+            label2 = new Label();
             SuspendLayout();
             // 
-            // listBox1
+            // comboBox1
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(277, 200);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(150, 104);
-            listBox1.TabIndex = 0;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(273, 251);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(151, 28);
+            comboBox1.TabIndex = 0;
+            // 
+            // comboBox2
+            // 
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(273, 307);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(151, 28);
+            comboBox2.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(163, 255);
+            label1.Name = "label1";
+            label1.Size = new Size(84, 20);
+            label1.TabIndex = 2;
+            label1.Text = "Universities";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(172, 310);
+            label2.Name = "label2";
+            label2.Size = new Size(54, 20);
+            label2.TabIndex = 3;
+            label2.Text = "Majors";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(listBox1);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-        private ListBox listBox1;
+
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Label label1;
+        private Label label2;
     }
 }

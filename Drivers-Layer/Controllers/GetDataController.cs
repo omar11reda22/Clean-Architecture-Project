@@ -17,12 +17,20 @@ namespace Drivers_Layer.Controllers
             _mediator = mediator;
         }
 
-        [HttpGet]
+        [HttpGet("universities")]
         public async Task<ActionResult> GetDatauniversities()
         {
             var query = new GetAlluniversityQuery();
             var result = await _mediator.Send(query); 
             return Ok(result); 
+
+        }
+        [HttpGet("majors")]
+        public async Task<ActionResult> getallmajors()
+        {
+            var query = new GetallMajorsQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);   
 
         }
     }

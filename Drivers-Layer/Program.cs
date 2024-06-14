@@ -34,6 +34,7 @@ namespace Drivers_Layer
           //  builder.Services.AddMediatR(typeof(AddnewapplicantHandler).Assembly);
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(AddnewapplicantHandler).Assembly));
             builder.Services.AddMediatR(s => s.RegisterServicesFromAssemblies(typeof(GetallUniversityHandler).Assembly));
+            builder.Services.AddMediatR(s => s.RegisterServicesFromAssemblies(typeof(GetallmajorHandler).Assembly));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
