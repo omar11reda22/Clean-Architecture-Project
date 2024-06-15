@@ -26,7 +26,7 @@ namespace Application_Layer.Handlers
         //    return Task.FromResult(universites);
         //}
 
-        async Task<List<UniversityDTO>> IRequestHandler<GetAlluniversityQuery, List<UniversityDTO>>.Handle(GetAlluniversityQuery request, CancellationToken cancellationToken)
+         Task<List<UniversityDTO>> IRequestHandler<GetAlluniversityQuery, List<UniversityDTO>>.Handle(GetAlluniversityQuery request, CancellationToken cancellationToken)
         {
             var universities =  universityRepository.getall().Select(s => new UniversityDTO {ID = s.UNV_ID , Name = s.Name }).ToList();
             return Task.FromResult(universities);
