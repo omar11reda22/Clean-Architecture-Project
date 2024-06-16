@@ -53,6 +53,7 @@
             experience1 = new TextBox();
             experience3 = new TextBox();
             experience2 = new TextBox();
+            button4 = new Button();
             SuspendLayout();
             // 
             // Universitycombobox
@@ -271,11 +272,23 @@
             experience2.Size = new Size(237, 27);
             experience2.TabIndex = 28;
             // 
+            // button4
+            // 
+            button4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.Location = new Point(857, 596);
+            button4.Name = "button4";
+            button4.Size = new Size(166, 41);
+            button4.TabIndex = 29;
+            button4.Text = "Clear";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1115, 649);
+            Controls.Add(button4);
             Controls.Add(experience2);
             Controls.Add(experience3);
             Controls.Add(experience1);
@@ -338,5 +351,6 @@
         private TextBox experience1;
         private TextBox experience3;
         private TextBox experience2;
+        private Button button4;
     }
 }

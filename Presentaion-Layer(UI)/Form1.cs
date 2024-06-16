@@ -38,24 +38,30 @@ namespace Presentaion_Layer_UI_
             var response1 = await client.GetAsync(universityURL);
             var response2 = await client.GetAsync(majorurl);
 
-            if (response1.IsSuccessStatusCode && response2.IsSuccessStatusCode)
+            if (response1.IsSuccessStatusCode)
             {
-                var majordata = await response2.Content.ReadAsStringAsync();
+
                 var universitydata = await response1.Content.ReadAsStringAsync();
 
-                var majors = JsonConvert.DeserializeObject<List<MajorDTO>>(majordata);
+
                 var universities = JsonConvert.DeserializeObject<List<UniversityDTO>>(universitydata);
 
                 Universitycombobox.DataSource = universities;
                 Universitycombobox.DisplayMember = "Name";
                 Universitycombobox.ValueMember = "ID";
 
-                majorcombobox.DataSource = majors;
-                Universitycombobox.DisplayMember = "Name";
-                Universitycombobox.ValueMember = "ID";
+
 
                 //comboBox1.DataSource = response1;
                 //comboBox2.DataSource = response2; 
+            }
+            if (response2.IsSuccessStatusCode)
+            {
+                var majordata = await response2.Content.ReadAsStringAsync();
+                var majors = JsonConvert.DeserializeObject<List<MajorDTO>>(majordata);
+                majorcombobox.DataSource = majors;
+                majorcombobox.DisplayMember = "Name";
+                majorcombobox.ValueMember = "ID";
             }
             else
             {
@@ -90,17 +96,21 @@ namespace Presentaion_Layer_UI_
                 }
             }
         }
-
+        // add values 
         private async void button2_Click(object sender, EventArgs e)
         {
             var name = Nametextbox.Text;
+            if (!mailtextbox.Text.Contains("@"))
+            {
+                MessageBox.Show("please input a valid Mail");
+            }
             var mail = mailtextbox.Text;
             var message = msgtextbox.Text;
             var workplace = (int)comboBox3.SelectedValue;
             var major = (int)majorcombobox.SelectedValue;
             var univesity = (int)Universitycombobox.SelectedValue;
 
-          //  var university = comboBox1.SelectedItem;
+            //  var university = comboBox1.SelectedItem;
 
             if (!int.TryParse(experience1.Text, out int yearsOfExperience))
             {
@@ -189,9 +199,21 @@ namespace Presentaion_Layer_UI_
             }
         }
 
-            private void exp1_ValueChanged(object sender, EventArgs e)
+        private void exp1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Nametextbox.Text = string.Empty; 
+            mailtextbox.Text = string.Empty;
+            experience1.Text = string.Empty; 
+            experience2.Text = string.Empty; 
+            experience3.Text = string.Empty;
+            msgtextbox.Text = string.Empty; 
+            resumetextbox.Text = string.Empty;
+            coverlettertextbox.Text = string.Empty; 
         }
     }
 }
