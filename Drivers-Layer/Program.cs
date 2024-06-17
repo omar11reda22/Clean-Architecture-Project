@@ -15,6 +15,13 @@ namespace Drivers_Layer
         {
             var builder = WebApplication.CreateBuilder(args);
             var connection = builder.Configuration.GetConnectionString("key");
+            var assemblyhandler = new[] 
+            {
+            typeof(AddnewapplicantHandler).Assembly,
+            typeof(GetallUniversityHandler).Assembly,
+            typeof(GetallmajorHandler).Assembly
+            
+            };
             // Add services to the container.
             builder.Services.AddDbContext<ApplicationContext>(option => option.UseSqlServer(connection));
             builder.Services.AddControllers();
@@ -22,7 +29,8 @@ namespace Drivers_Layer
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
             builder.Services.AddTransient<IApplicantRepository, ApplicantRepository>();
-            builder.Services.AddTransient<IMajorRepsitory, MajorRepository>(); 
+            builder.Services.AddTransient<IMajorRepsitory, MajorRepository>();
+            builder.Services.AddCors(option => { option.AddPolicy("myallowservices" , builder => { builder.AllowAnyOrigin(); builder.AllowAnyHeader(); builder.AllowAnyMethod(); }); }) ;
             // builder.Services.AddSingleton<IFileStorageService, FileStorageService>();
             builder.Services.AddTransient<IFileStorageService>(option =>
             {
@@ -32,9 +40,9 @@ namespace Drivers_Layer
             builder.Services.AddTransient<IUniversityRepository, UniversityRepository>();
             builder.Services.AddTransient<IMajorRepsitory, MajorRepository>();
           //  builder.Services.AddMediatR(typeof(AddnewapplicantHandler).Assembly);
-            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(AddnewapplicantHandler).Assembly));
-            builder.Services.AddMediatR(s => s.RegisterServicesFromAssemblies(typeof(GetallUniversityHandler).Assembly));
-            builder.Services.AddMediatR(s => s.RegisterServicesFromAssemblies(typeof(GetallmajorHandler).Assembly));
+            builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assemblyhandler));
+            //builder.Services.AddMediatR(s => s.RegisterServicesFromAssemblies(typeof(GetallUniversityHandler).Assembly));
+            //builder.Services.AddMediatR(s => s.RegisterServicesFromAssemblies(typeof(GetallmajorHandler).Assembly));
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -45,7 +53,7 @@ namespace Drivers_Layer
             }
 
             app.UseHttpsRedirection();
-
+            app.UseCors();
             app.UseAuthorization();
 
 

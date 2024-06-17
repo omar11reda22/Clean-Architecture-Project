@@ -20,11 +20,11 @@ namespace Presentaion_Layer_UI_.Data
         public IFormFile? ResumPath { get; set; } = default!;
         public IFormFile? CoverPath { get; set; } = default!;
 
-        [Display(Name = "experience in .NET")]
+       // [Display(Name = "experience in .NET")]
         public int? yearsofexperience { get; set; }
-        [Display(Name = "experience in sql server")]
+      //  [Display(Name = "experience in sql server")]
         public int? yearsofexperience2 { get; set; }
-        [Display(Name = "experience in restful API")]
+      //  [Display(Name = "experience in restful API")]
         public int? yearsofexperience3 { get; set; }
 
 
