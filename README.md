@@ -28,7 +28,7 @@ Visual Studio or any other C# compatible IDE
 
 
 # Installation
-1-Clone the Repository: git clone https://github.com/your-username/applicant-management-system.git
+1-Clone the Repository: git clone https://github.com/omar11reda22/applicant-management-system.git
 2-Navigate to the Project Directory: cd applicant-management-system
 3-Build the Project:dotnet build
 4-Update the Database:dotnet ef database update
