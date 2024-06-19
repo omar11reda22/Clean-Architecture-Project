@@ -61,6 +61,48 @@ Contributions are welcome! If you have suggestions or improvements, please:
 4-Push to the branch (git push origin feature/your-feature-name).
 5-Open a pull request.
 
+#Flow Chart to project : 
+1-UI Layer (Windows Forms)
+
+User interacts with the application.
+User inputs data (name, email, message, experience, workplace, major, university, resume file, cover letter file).
+2-UI Layer Actions
+
+HTTP GET to fetch majors and universities.
+Populate combo boxes with fetched data.
+On form submission, create an ApplicantDTO with user input data.
+3-API Layer (ASP.NET Core)
+
+Receives HTTP POST request with ApplicantDTO and file uploads.
+Controller routes request to the appropriate command handler.
+4-Application Layer
+
+Command Handler:
+Processes ApplicantDTO.
+Validates data.
+Interacts with Infrastructure Layer to save data and files.
+Queries to retrieve data as needed.
+5-Infrastructure Layer
+
+Repository:
+Interacts with MyContext to persist data to the database.
+FileStorageService:
+Handles file uploads, saving the resume and cover letter to the specified location.
+6-Domain Layer
+
+Defines the core business entities (e.g., Applicant).
+Contains business rules and logic.
+7-Data Persistence
+
+MyContext (EF Core context):
+Manages database connections.
+Maps domain entities to database tables.
+8-Response Handling
+
+Application Layer responds to API Layer with success or error messages.
+API Layer sends the response back to the UI Layer.
+UI Layer updates the user with the result (e.g., success message or error alert).
+
 # Contact
 For any questions or further information, feel free to contact the project maintainers.
 
