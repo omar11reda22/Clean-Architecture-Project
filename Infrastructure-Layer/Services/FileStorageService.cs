@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure_Layer.Services
-{
+{//
+    // https://github.com/omar11reda22/Clean-Architecture-Project
     public class FileStorageService : IFileStorageService
     {
         private readonly string webrootpath;
+
 
         public FileStorageService(string webrootpath)
         {
